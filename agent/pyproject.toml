@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "agent"
 version = "0.1.0"
@@ -8,3 +12,10 @@ dependencies = [
     "langchain>=1.2.13",
     "langchain-openai>=1.1.11",
 ]
+
+[project.scripts]
+agent = "agent.app:main"
+agent-indexer = "agent.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agent"]
